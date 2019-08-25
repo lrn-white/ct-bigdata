@@ -14,4 +14,12 @@ public class DataValue implements Val {
     public Object value() {
         return null;
     }
+
+    public void setValue(Object val) {
+
+    }
+
+    public Object getValue() {
+        return null;
+    }
 }

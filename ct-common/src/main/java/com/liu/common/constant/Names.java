@@ -9,7 +9,8 @@ public enum Names implements Val {
     /**
      * 命名
      */
-    NAMESPACE("ct");
+    NAMESPACE("ct"),
+    TOPIC("ct");
 
     private String name;
 
@@ -21,7 +22,7 @@ public enum Names implements Val {
         this.name = (String) val;
     }
 
-    public Object getValue() {
-        return null;
+    public String getValue() {
+        return name;
     }
 }

@@ -2,6 +2,7 @@ package com.liu.consumer.bean;
 
 import com.liu.common.bean.Consumer;
 import com.liu.common.constant.Names;
+import com.liu.consumer.dao.HBaseDao;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -28,12 +29,18 @@ public class CalllogConsumer implements Consumer {
 //        关注主题
         consumer.subscribe(Arrays.asList(Names.TOPIC.getValue()));
 
+//        Hbase数据访问对象
+//        HBaseDao dao = new HBaseDao();
+//        dao.init();
+
+//        消费数据
         while (true){
             ConsumerRecords<String,String> consumerRecords = consumer.poll(100);
             for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
                 System.out.println(consumerRecord.value());
+//                dao.insertData(consumerRecord.value());
             }
-        }
+          }
     }
 
     /**
